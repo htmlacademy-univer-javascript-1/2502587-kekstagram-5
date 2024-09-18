@@ -17,10 +17,10 @@ function isPalindrom(string) {
   return modifiedString === newString;
 }
 
-isPalindrom('топот'); // true
-isPalindrom('ДовОд'); // true
-isPalindrom('Кекс');  // false
-isPalindrom('Лёша на полке клопа нашёл '); // true
+isPalindrom('топот');
+isPalindrom('ДовОд');
+isPalindrom('Кекс');
+isPalindrom('Лёша на полке клопа нашёл ');
 
 function getNumber(data) {
   const string = String(data);

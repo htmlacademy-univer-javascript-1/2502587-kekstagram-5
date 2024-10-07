@@ -52,7 +52,7 @@ const getRandomInteger = (a, b) => {
   return Math.floor(result);
 };
 
-function createRandomIdFromRangeGenerator (min, max) {
+const createRandomIdFromRangeGenerator = (min, max) => {
   const previousValues = [];
 
   return function () {
@@ -69,7 +69,7 @@ function createRandomIdFromRangeGenerator (min, max) {
     previousValues.push(currentValue);
     return currentValue;
   };
-}
+};
 
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
@@ -77,17 +77,20 @@ const generatePhotoId = createRandomIdFromRangeGenerator(1, 25);
 const generatePhotoAvatar = getRandomInteger;
 const generatePhotoURL = createRandomIdFromRangeGenerator(1, 25);
 const generatePhotoLikes = getRandomInteger;
-const generatePhotoComments = getRandomInteger;
 
-const createPhotoDescription = () => ({
+const createPhotoComments = () => ({
   id: generatePhotoId(),
   avatar: `img/avatar-${generatePhotoAvatar(1, 6)}.svg`,
   message: getRandomArrayElement(COMMENTS),
-  name: getRandomArrayElement(NAMES),
+  name: getRandomArrayElement(NAMES)
+});
+
+const createPhotoDescription = () => ({
+  id: generatePhotoId(),
   url: `photos/${generatePhotoURL()}.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
   likes: generatePhotoLikes(15, 200),
-  comments: generatePhotoComments(0, 30),
+  comments: createPhotoComments(),
 });
 
 const allPhoto = Array.from({length: ALL_PHOTO_COUNT}, createPhotoDescription);

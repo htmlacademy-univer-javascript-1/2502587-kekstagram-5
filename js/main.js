@@ -1,3 +1,3 @@
 import { allPhoto } from './data.js';
 
-allPhoto()
+allPhoto();

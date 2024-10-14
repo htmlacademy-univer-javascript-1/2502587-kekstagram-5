@@ -90,9 +90,9 @@ const createPhotoDescription = () => ({
   url: `photos/${generatePhotoURL()}.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
   likes: generatePhotoLikes(15, 200),
-  comments: createPhotoComments(),
+  comments: Array.from({length: getRandomInteger(0, 25)}, createPhotoComments),
 });
 
-const allPhoto = Array.from({length: ALL_PHOTO_COUNT}, createPhotoDescription);
+const allPhoto = () => Array.from({length: ALL_PHOTO_COUNT}, createPhotoDescription);
 
 allPhoto();

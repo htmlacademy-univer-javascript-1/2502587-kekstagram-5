@@ -52,12 +52,12 @@ const renderComments = () => {
 const onLoadCommentsButtonClick = () => {
   commentsCount += COMMENTS_STEP;
   renderComments();
-}
+};
 
 const hideBigPicture = () => {
   bigPictureElement.classList.add('hidden');
   bodyElement.classList.remove('modal-open');
-  commentsCount = COMMENTS_STEP;;
+  commentsCount = COMMENTS_STEP;
   currentComments = [];
   socialFooterText.value = '';
   document.removeEventListener('keydown', onDocumentKeydown);
@@ -70,17 +70,8 @@ function onDocumentKeydown(evt) {
   }
 }
 
-const onBigPictureEscKeyDown = (evt) => {
-  closeOnEscKeyDown(evt, () => {
-    hideBigPicture();
-    document.removeEventListener('keydown', onBigPictureEscKeyDown);
-    commentsLoaderElement.removeEventListener('click', onLoadCommentsButtonClick);
-  });
-};
-
 const onCanselbuttonClick = () => {
   hideBigPicture();
-  document.removeEventListener('keydown', onBigPictureEscKeyDown)
 };
 
 const showBigPicture = (data) => {
@@ -98,7 +89,6 @@ const showBigPicture = (data) => {
 
   commentsLoaderElement.addEventListener('click', onLoadCommentsButtonClick);
   document.addEventListener('keydown', onDocumentKeydown);
-  document.addEventListener('keydown', onBigPictureEscKeyDown);
 };
 
 canselButtonElement.addEventListener('click', onCanselbuttonClick);

@@ -4,6 +4,7 @@ import { hideModal, setOnFormSubmit } from './user-form.js';
 import { getData, sendData } from './fetch.js';
 import { showAlert, debounce } from './util.js';
 import { init, getFilterPictures } from './filter.js';
+import './own-photos.js';
 
 try {
   init(await getData(), debounce(renderGallery));

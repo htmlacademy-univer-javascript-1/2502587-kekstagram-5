@@ -70,7 +70,7 @@ const hideBigPicture = () => {
 };
 
 function onDocumentKeydown(evt) {
-  if (isEscapeKey) {
+  if (isEscapeKey(evt)) {
     evt.preventDefault();
     hideBigPicture();
   }
